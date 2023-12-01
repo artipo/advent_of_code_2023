@@ -61,3 +61,6 @@ module Set =
 module String =
     let join (sep : string) (seq : string list) =
         String.Join(sep, seq)
+    
+    let replace (oldText : string) (newText : string) (str : string)  =
+        str.Replace(oldText, newText)

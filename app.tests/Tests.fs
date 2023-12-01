@@ -9,10 +9,23 @@ module Day01 =
 
     [<Fact>]
     let ``day 01, puzzle 1`` () =
-        true
-        |> should equal true
+        [ "1abc2"
+          "pqr3stu8vwx"
+          "a1b2c3d4e5f"
+          "treb7uchet" ]
+        |> List.map Seq.toList
+        |> searchCalibrationValues
+        |> should equal 142
 
     [<Fact>]
     let ``day 01, puzzle 2`` () =
-        true
-        |> should equal true
+        [ "two1nine"
+          "eightwothree"
+          "abcone2threexyz"
+          "xtwone3four"
+          "4nineeightseven2"
+          "zoneight234"
+          "7pqrstsixteen" ]
+        |> List.map fixSpelledDigits
+        |> searchCalibrationValues
+        |> should equal 282
