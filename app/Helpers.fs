@@ -64,3 +64,6 @@ module String =
     
     let replace (oldText : string) (newText : string) (str : string)  =
         str.Replace(oldText, newText)
+    
+    let split (del : string) (opts : StringSplitOptions) (str : string) =
+        str.Split(del, opts)

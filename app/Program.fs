@@ -64,10 +64,15 @@ let solve day =
     | None ->
         Day01.solve_puzzle_1 ()
         Day01.solve_puzzle_2 ()
+        Day02.solve_puzzle_1 ()
     
     | Some Day_1 ->
         Day01.solve_puzzle_1 ()
         Day01.solve_puzzle_2 ()
+        
+    | Some Day_2 ->
+        Day02.solve_puzzle_1 ()
+        Day02.solve_puzzle_2 ()
     
     | Some _ -> raise (NotImplementedException("NOT IMPLEMENTED -> doing day by day!"))
 
