@@ -30,7 +30,6 @@ module Day01 =
         |> searchCalibrationValues
         |> should equal 282
 
-
 module Day02 =
 
     open App.Solutions.Day02
@@ -60,3 +59,39 @@ module Day02 =
           "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green" ]
         |> calculateResult_02
         |> should equal 2286u
+
+module Day03 =
+
+    open App.Solutions.Day03
+
+    [<Fact>]
+    let ``day 03, puzzle 1`` () =
+        
+        [ "467..114.."
+          "...*......"
+          "..35..633."
+          "......#..."
+          "617*......"
+          ".....+.58."
+          "..592....."
+          "......755."
+          "...$.*...."
+          ".664.598.." ]
+        |> calculateResult_01
+        |> should equal 4361
+
+    [<Fact>]
+    let ``day 03, puzzle 2`` () =
+        
+        [ "467..114.."
+          "...*......"
+          "..35..633."
+          "......#..."
+          "617*......"
+          ".....+.58."
+          "..592....."
+          "......755."
+          "...$.*...."
+          ".664.598.." ]
+        |> calculateResult_02
+        |> should equal 467835
