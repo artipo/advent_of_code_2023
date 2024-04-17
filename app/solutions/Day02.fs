@@ -1,9 +1,10 @@
 ﻿module App.Solutions.Day02
 
+open Microsoft.FSharp.Collections
 open System
 open System.Text.RegularExpressions
+
 open App.Helpers
-open Microsoft.FSharp.Collections
 
 let gameRegex = Regex(@"Game (?<id>\d+): (?<picks>.*)", RegexOptions.Multiline)
 let diceRegex = Regex(@"(?<count>\d+) (?<dice>red|green|blue)", RegexOptions.Multiline)
@@ -25,17 +26,13 @@ let parseDice =
     | "green" -> Green
     | "blue" -> Blue
 
-let getValue (name : string) (m : Match) =
-    m.Groups.[name].Value
-
 let parseGame line : Game =
     let m = gameRegex.Match(line)
-    let id = m |> getValue "id" |> uint
+    let id = m |> Match.getValue "id" |> uint
     
     let picks : Pick array =
         m
-        |> getValue "picks"
-        |> string
+        |> Match.getValue "picks"
         |> String.split ";" StringSplitOptions.TrimEntries
         |> Array.map (fun s ->
             s
@@ -43,8 +40,8 @@ let parseGame line : Game =
             |> Array.map diceRegex.Match
             |> Array.map (fun m ->
                 // tuple (dice * count)
-                 m |> getValue "dice" |> parseDice,
-                 m |> getValue "count" |> uint)
+                 m |> Match.getValue "dice" |> parseDice,
+                 m |> Match.getValue "count" |> uint)
             |> Map.ofArray)
 
     { Id = id

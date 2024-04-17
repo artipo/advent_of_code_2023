@@ -4,6 +4,7 @@ module App.Helpers
 open System
 open System.Collections.Generic
 open System.IO
+open System.Text.RegularExpressions
 
 module Dictionary =
     let tryFind key (dict : Dictionary<_, _>) =
@@ -67,3 +68,8 @@ module String =
     
     let split (del : string) (opts : StringSplitOptions) (str : string) =
         str.Split(del, opts)
+
+module Match =
+    let getValue (name : string) (m : Match) =
+        m.Groups.[name].Value
+   

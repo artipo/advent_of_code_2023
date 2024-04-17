@@ -1,6 +1,5 @@
 ﻿module App.Solutions.Day03
 
-open System.Text.RegularExpressions
 open Microsoft.FSharp.Collections
 
 open App.Helpers
